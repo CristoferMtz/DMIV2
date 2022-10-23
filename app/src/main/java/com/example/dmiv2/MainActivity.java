@@ -2,6 +2,7 @@ package com.example.dmiv2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.dmiv2.Productos.AltaProducto;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button btnAgregar;
     EditText txtId, txtImg, txtCodigo, txtNombre, txtCantidad, txtCosto, txtPrecio, txtid_categoria;
     Button btnEnviar;
 
@@ -37,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         txtCosto = findViewById(R.id.txtCosto);
         txtPrecio = findViewById(R.id.txtPrecio);
         txtid_categoria = findViewById(R.id.txtid_categoria);
+
+        btnAgregar = findViewById(R.id.btnAgregar);
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AltaProducto.class));
+            }
+        });
 
         btnEnviar = findViewById(R.id.btnEnviar);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
